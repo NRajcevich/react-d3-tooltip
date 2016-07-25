@@ -35,20 +35,24 @@ export default class BarGroupContainer extends Component {
       onMouseOver,
       onMouseOut,
       showXGrid,
-      showYGrid
+      showYGrid,
+      showXAxis,
+      showYAxis
     } = this.props;
 
-    var xgrid, ygrid;
+    var xgrid, ygrid, xAxis,yAxis;
 
-    if(showXGrid) xgrid = <Xgrid {...this.props}/>
-    if(showYGrid) ygrid = <Ygrid {...this.props}/>
+    if(showXGrid) xgrid = <Xgrid {...this.props}/>;
+    if(showYGrid) ygrid = <Ygrid {...this.props}/>;
+    if(showXAxis) xAxis = <Xaxis {...this.props}/>;
+    if(showYAxis) yAxis = <Yaxis {...this.props}/>;
 
     return (
       <g>
         {xgrid}
         {ygrid}
-        <Xaxis {...this.props}/>
-        <Yaxis {...this.props}/>
+        {xAxis}
+        {yAxis}
         <BarGroup
           {...this.props}
           onMouseOver= {onMouseOver}
